@@ -4,7 +4,7 @@ import urlparse
 import motor
 
 
-PORT = 8000
+PORT = 8080
 
 class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
@@ -21,7 +21,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
           self.go_forward()
 
        # request is either for a file to be served up or our test
-       if parsedParams.path == "/test":
+       else if parsedParams.path == "/test":
           self.processMyRequest(queryParsed)
        else:
           # Default to serve up a local file 
@@ -29,6 +29,11 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
           
    def go_forward(self):
        self.motor.right_fwd_start()
+       self.send_response(200)
+       self.send_header('Content-Type', 'application/html')
+       self.end_headers()
+       self.wfile.write("forward");
+       self.wfile.close();
           
    def processMyRequest(self, query):
 
