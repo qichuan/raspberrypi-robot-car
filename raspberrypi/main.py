@@ -1,16 +1,24 @@
 import SimpleHTTPServer
 import SocketServer
 import urlparse
+import motor
 
 
 PORT = 8000
 
 class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+
+   def __init__(self):
+       self.motor = Motor()
+
    def do_GET(self):
 
        # Parse query data & params to find out what was passed
        parsedParams = urlparse.urlparse(self.path)
        queryParsed = urlparse.parse_qs(parsedParams.query)
+       
+       if parsedParams.path=="/forward":
+          self.go_forward()
 
        # request is either for a file to be served up or our test
        if parsedParams.path == "/test":
@@ -18,7 +26,10 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
        else:
           # Default to serve up a local file 
           SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self);
-
+          
+   def go_forward(self):
+       self.motor.right_fwd_start()
+          
    def processMyRequest(self, query):
 
        self.send_response(200)
