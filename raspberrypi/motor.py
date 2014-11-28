@@ -12,8 +12,8 @@ left_backward_pin=10
 left_forward_pin=12
 	
 class Motor:
-	
-	def __init__(self):
+	@staticmethod
+	def initialization():
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setwarnings(False)
 	
