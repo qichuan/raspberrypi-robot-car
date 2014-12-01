@@ -8,37 +8,49 @@ GPIO = FGPIO()
 right_backward_pin=7
 right_forward_pin=11
 
-left_backward_pin=16
-left_forward_pin=18
+left_backward_pin=18
+left_forward_pin=16
 	
 class Motor:
 	@staticmethod
 	def initialization():
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setwarnings(False)
+		GPIO.setup(right_forward_pin, GPIO.OUT, initial=0)
+		GPIO.setup(right_backward_pin, GPIO.OUT, initial=0);
+		GPIO.setup(left_forward_pin, GPIO.OUT, initial=0)
+		GPIO.setup(left_backward_pin, GPIO.OUT, initial=0);
 	
 	def right_fwd_start(self):
-		GPIO.setup(right_forward_pin, GPIO.OUT)
+		#GPIO.setup(right_forward_pin, GPIO.OUT)
+		GPIO.output(right_forward_pin, 1)
 	
 	def right_fwd_stop(self):
-		GPIO.setup(right_forward_pin, GPIO.IN);
+		#GPIO.setup(right_forward_pin, GPIO.IN)
+		GPIO.output(right_forward_pin, 0);
 	
 	def right_bck_start(self):
-		GPIO.setup(right_backward_pin, GPIO.OUT);
+		#GPIO.setup(right_backward_pin, GPIO.OUT)
+		GPIO.output(right_backward_pin, 1)
 	
 	def right_bck_stop(self):
-		GPIO.setup(right_backward_pin, GPIO.IN);
+		#GPIO.setup(right_backward_pin, GPIO.IN)
+		GPIO.output(right_backward_pin, 0)
 
 	def left_fwd_start(self):
-		GPIO.setup(left_forward_pin, GPIO.OUT)
+		#GPIO.setup(left_forward_pin, GPIO.OUT)
+		GPIO.output(left_forward_pin, 1)
 	
 	def left_fwd_stop(self):
-		GPIO.setup(left_forward_pin, GPIO.IN);
+		#GPIO.setup(left_forward_pin, GPIO.IN);
+		GPIO.output(left_forward_pin, 0);
 	
 	def left_bck_start(self):
-		GPIO.setup(left_backward_pin, GPIO.OUT);
+		#GPIO.setup(left_backward_pin, GPIO.OUT)
+		GPIO.output(left_backward_pin, 1)
 	
 	def left_bck_stop(self):
-		GPIO.setup(left_backward_pin, GPIO.IN);
+		#GPIO.setup(left_backward_pin, GPIO.IN)
+		GPIO.output(left_backward_pin, 0)
 
 

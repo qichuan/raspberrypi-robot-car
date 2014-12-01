@@ -4,7 +4,7 @@ import urlparse
 from motor import Motor
 
 
-PORT = 8000
+PORT = 8080
 
 class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     

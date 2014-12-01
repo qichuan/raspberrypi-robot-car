@@ -11,6 +11,9 @@ class FGPIO:
     def setwarnings(self, warnings):
         print "setwarnings " ,warnings
         
-    def setup(self, pin, mode):
+    def setup(self, pin, mode, initial):
         print "setup pin", pin , " mode ", mode
+    
+    def output(self, pin, val):
+        print "output ", pin, "value", val
         
