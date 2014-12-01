@@ -17,9 +17,9 @@ class Motor:
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setwarnings(False)
 		GPIO.setup(right_forward_pin, GPIO.OUT, initial=0)
-		GPIO.setup(right_backward_pin, GPIO.OUT, initial=0);
+		GPIO.setup(right_backward_pin, GPIO.OUT, initial=0)
 		GPIO.setup(left_forward_pin, GPIO.OUT, initial=0)
-		GPIO.setup(left_backward_pin, GPIO.OUT, initial=0);
+		GPIO.setup(left_backward_pin, GPIO.OUT, initial=0)
 	
 	def right_fwd_start(self):
 		#GPIO.setup(right_forward_pin, GPIO.OUT)
@@ -27,7 +27,7 @@ class Motor:
 	
 	def right_fwd_stop(self):
 		#GPIO.setup(right_forward_pin, GPIO.IN)
-		GPIO.output(right_forward_pin, 0);
+		GPIO.output(right_forward_pin, 0)
 	
 	def right_bck_start(self):
 		#GPIO.setup(right_backward_pin, GPIO.OUT)
@@ -43,7 +43,7 @@ class Motor:
 	
 	def left_fwd_stop(self):
 		#GPIO.setup(left_forward_pin, GPIO.IN);
-		GPIO.output(left_forward_pin, 0);
+		GPIO.output(left_forward_pin, 0)
 	
 	def left_bck_start(self):
 		#GPIO.setup(left_backward_pin, GPIO.OUT)
