@@ -24,6 +24,8 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             self.turn_right()
         elif parsedParams.path == "/turnLeft":
             self.turn_left()
+        elif parsedParams.path == "/stop":
+            self.stop()
         else:
             SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
 
@@ -35,17 +37,32 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         self.print_msg("forward")
         
     def go_backward(self):
-        self.motor.left_back_start()
+        self.motor.left_bck_start()
         self.motor.left_fwd_stop()
         self.motor.right_bck_start()
         self.motor.right_fwd_stop()
         self.print_msg("backward")
         
     def turn_left(self):
+        self.motor.left_fwd_stop()
+        self.motor.left_bck_start()
+        self.motor.right_bck_stop()
+        self.motor.right_fwd_start()
         self.print_msg("turn left")
         
     def turn_right(self):
+        self.motor.left_bck_stop()
+        self.motor.left_fwd_start()
+        self.motor.right_bck_start()
+        self.motor.right_fwd_stop()
         self.print_msg("turn right")
+        
+    def stop(self):
+        self.motor.left_bck_stop()
+        self.motor.left_fwd_stop()
+        self.motor.right_bck_stop()
+        self.motor.right_fwd_stop()
+        self.print_msg("stop")
         
     def print_msg(self, msg):
         self.send_response(200)
