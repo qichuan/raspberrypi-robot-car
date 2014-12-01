@@ -8,8 +8,8 @@ GPIO = FGPIO()
 right_backward_pin=7
 right_forward_pin=11
 
-left_backward_pin=10
-left_forward_pin=12
+left_backward_pin=16
+left_forward_pin=18
 	
 class Motor:
 	@staticmethod
