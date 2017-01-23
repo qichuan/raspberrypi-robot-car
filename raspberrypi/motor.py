@@ -1,15 +1,14 @@
-from fake_rpi import FGPIO
-#import RPi.GPIO as GPIO
+#from fake_rpi import FGPIO
+import RPi.GPIO as GPIO
 import time
 
 
-GPIO = FGPIO()
+right_forward_pin=13
+right_backward_pin=15
 
-right_backward_pin=7
-right_forward_pin=11
-
-left_backward_pin=18
 left_forward_pin=16
+left_backward_pin=18
+
 	
 class Motor:
 	@staticmethod
